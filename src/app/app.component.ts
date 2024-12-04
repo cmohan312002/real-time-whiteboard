@@ -1,12 +1,17 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';  // Ensure RouterModule is imported
+import { LoginComponent } from './components/auth/login/login.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { WhiteboardComponent } from './components/whiteboard/whiteboard/whiteboard.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.scss'
+  standalone: true,
+  imports: [CommonModule, RouterModule],  // Import RouterModule for routing
+  template: `
+    <router-outlet></router-outlet>  <!-- Where routed components appear -->
+  `,
+  styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-  title = 'real-time-whiteboard';
-}
+export class AppComponent {}
